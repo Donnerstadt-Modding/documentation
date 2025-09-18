@@ -22,7 +22,7 @@ Um Support zu erhalten und Benachrichtigungen zu bekommen, sobald ein Update fü
 
 [➡️ Trete dem DS-Modding Discord Server bei](https://discord.gg/kUsQp5J3)
 
-> ℹ️ Du kannst deine Script-Rolle im Channel **#bot-commands** auf unserem Discord anfordern.
+> ℹ️ Du kannst deine Customer Rolle im Channel **#bot-commands** auf unserem Discord anfordern.
 
 ***
 
@@ -37,9 +37,8 @@ Es gibt zwei Möglichkeiten, deine Rolle zu beantragen:
   ✅ Keine Wartezeit, sofortiger Zugang zu unseren Support-Channels.
 * **Manuelle Anfrage**\
   Du hast deine Rolle bereits beantragt und den Server wieder verlassen oder **kennst deine tbx-ID nicht**?\
-  Folge dem Beispiel, das der Bot im Channel **#bot-commands** gibt, und beantrage die Rolle mit deinem **CFX-Namen**.\
-  Einer unserer Teammitglieder überprüft dies manuell.\
-  ⏱ Dies kann bis zu 24 Stunden dauern.
+  Eröffne Ein Ticket und einer unserer Teammitglieder überprüft dies manuell.\
+  ⏱ Dies kann bis zu 12 Stunden dauern.
 
 ***
 
