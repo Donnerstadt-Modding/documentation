@@ -5,7 +5,7 @@
 ## Getting Started
 
 * [Wie bekomme ich Support?](getting-started/quickstart.md)
-* [Publish your docs](getting-started/publish-your-docs.md)
+* [Discord Rollen](getting-started/publish-your-docs.md)
 
 ## Basics
 
