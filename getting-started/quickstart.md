@@ -18,22 +18,38 @@ layout:
 
 # Wie bekomme ich Support?
 
-Test"§"§
+## 🛠 Support erhalten
 
-<figure><img src="https://gitbookio.github.io/onboarding-template-images/quickstart-hero.png" alt=""><figcaption></figcaption></figure>
+Wenn du Hilfe benötigst, erreichst du unser Support-Team ganz einfach über **Discord**.
 
-Beautiful documentation starts with the content you create — and GitBook makes it easy to get started with any pre-existing content.
+***
 
-{% hint style="info" %}
-Want to learn about writing content from scratch? Head to the [Basics](../basics/editor.md) section to learn more.
-{% endhint %}
+### 1️⃣ Discord beitreten
 
-### Import
+Tritt unserem Discord-Server bei, um direkten Kontakt zu bekommen:
 
-GitBook supports importing content from many popular writing tools and formats. If your content already exists, you can upload a file or group of files to be imported.
+> 🔗 [Discord Beitreten](https://discord.gg/P9UXjJwEtD)
 
-<div data-full-width="false"><figure><img src="https://gitbookio.github.io/onboarding-template-images/quickstart-import.png" alt=""><figcaption></figcaption></figure></div>
+***
 
-### Sync a repository
+### 2️⃣ Support-Ticket erstellen
 
-GitBook also allows you to set up a bi-directional sync with an existing repository on GitHub or GitLab. Setting up Git Sync allows you and your team to write content in GitBook or in code, and never have to worry about your content becoming out of sync.
+Erstelle im Server ein Ticket in [<mark style="color:$success;">**#**</mark><mark style="color:$success;">tickets</mark>](#user-content-fn-1)[^1] und beschreibe dein Problem.\
+Bitte **immer** folgende Informationen angeben:
+
+> 📝 **Tebex-ID:** Deine Bestell-ID von Tebex (Meistens zu finden direkt bei Kauf oder in deiner Angegebenen E-Mail).\
+> 🎁 **Produkt:** Das Produkt was du Gekauft hast.
+>
+> 🗒 **Problem / Anliegen:** Beschreibe dein Anliegen oder Problem so genau wie möglich.
+
+> 💡 **Tipp:** Je genauer du die Angaben machst, desto schneller können wir dein Anliegen bearbeiten.
+
+***
+
+### 3️⃣ Bearbeitung
+
+Unser Team meldet sich so schnell wie möglich bei dir und kümmert sich um dein Problem.
+
+> ⏱ Wir versuchen, jedes Ticket innerhalb von 24 Stunden zu beantworten.
+
+[^1]: 
