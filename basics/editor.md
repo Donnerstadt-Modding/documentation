@@ -32,7 +32,7 @@ Either start typing below, or press `/` to see a list of the blocks you can inse
 
 {% stepper %}
 {% step %}
-#### Open the insert block menu
+####
 
 Press `/` on your keyboard to open the insert block menu.
 {% endstep %}
