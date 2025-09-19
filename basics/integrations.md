@@ -29,6 +29,7 @@ Hier erklären wir **jede einzelne Einstellung** im Detail.
 ### Benötigt
 
 * ESXLegacy
+* ox\_target
 
 ***
 
@@ -75,7 +76,7 @@ Unterstützt werden:
 
 ***
 
-### 🎮 Interaktionen
+### Interaktionen
 
 ```lua
 Config.InteractionDistance = 3.0

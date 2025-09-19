@@ -9,4 +9,4 @@
 
 ## Paid Scripts
 
-* [DS-Registrations](paid-scripts/integrations.md)
+* [DS-Registrations](basics/integrations.md)
