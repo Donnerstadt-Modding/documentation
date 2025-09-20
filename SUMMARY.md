@@ -10,4 +10,7 @@
 ## Paid Scripts
 
 * [DS-Registrations](basics/integrations.md)
-* [DS-Repairkit](paid-scripts/ds-repairkit.md)
+
+## Free Scripts
+
+* [DS-Repairkit](free-scripts/ds-repairkit.md)
