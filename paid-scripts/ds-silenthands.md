@@ -16,6 +16,7 @@ Die Konfiguration erfolgt über `config.lua`. Jede Option ist unten detailliert 
 
 * ESXLegacy
 * ox\_inventory
+* visn\_are
 
 ***
 
