@@ -10,6 +10,7 @@
 ## Paid Scripts
 
 * [DS-Registrations](basics/integrations.md)
+* [DS-SilentHands](paid-scripts/ds-silenthands.md)
 
 ## Free Scripts
 
