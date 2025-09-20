@@ -1,5 +1,5 @@
 ---
-icon: plug-circle-plus
+icon: paste
 layout:
   width: default
   title:
@@ -30,6 +30,7 @@ Hier erklären wir **jede einzelne Einstellung** im Detail.
 
 * ESXLegacy
 * ox\_target
+* (Optional) lation\_ui
 
 ***
 
