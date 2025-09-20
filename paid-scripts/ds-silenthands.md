@@ -27,7 +27,7 @@ Config.Language = 'de'
 ```
 
 * **Beschreibung:** Legt die Sprache fest, die für die NUI-Anzeige verwendet wird.
-* **Mögliche Werte:** `'de'`, `'en'` oder andere, die in deinen `locales/locales.lua` definiert sind.
+* **Mögliche Werte:** `'de'`, `'en'` oder andere, die in deinem `locales` Ordner definiert sind.
 *   **Beispiel:**
 
     ```lua
