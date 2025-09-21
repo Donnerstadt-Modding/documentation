@@ -11,6 +11,7 @@
 
 * [DS-Registrations](basics/integrations.md)
 * [DS-SilentHands](paid-scripts/ds-silenthands.md)
+* [DS-TÜV](paid-scripts/ds-tuv.md)
 
 ## Free Scripts
 
