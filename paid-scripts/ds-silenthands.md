@@ -9,13 +9,15 @@ Die Konfiguration erfolgt über `config.lua`. Jede Option ist unten detailliert 
 
 ***
 
-**Benötigt**
+### 🔧 Benötigt
 
-* ESXLegacy
-* ox\_inventory
-* visn\_are
+* [ESX Legacy](https://github.com/esx-framework/esx-legacy)
+* [ox\_inventory](https://github.com/overextended/ox_inventory)
+* [visn\_are](https://github.com/VisnAre)
 
 ***
+
+### ⚙️ Konfiguration (`config.lua`)
 
 #### 1. Sprache der Anzeige
 
@@ -24,11 +26,11 @@ Config.Language = 'de'
 ```
 
 **Beschreibung:** Legt die Sprache fest, die für die NUI-Anzeige verwendet wird.\
-**Mögliche Werte:** `'de'`, `'en'` oder andere, die in deinem `locales` Ordner definiert sind.\
+**Mögliche Werte:** `'de'`, `'en'` oder andere, die im `locales` Ordner definiert sind.\
 **Beispiel:**
 
 ```lua
-Config.Language = 'en'  -- Anzeige auf Englisch
+Config.Language = 'en' -- Anzeige auf Englisch
 ```
 
 ***
@@ -45,7 +47,7 @@ Config.IncapacitatedTime = 600
 * `600` → 10 Minuten
 * `300` → 5 Minuten
 
-**Hinweis:** Wird automatisch als Timer in der NUI-Anzeige dargestellt.
+Hinweis: Wird automatisch als Timer in der NUI-Anzeige dargestellt.
 
 ***
 
@@ -63,27 +65,27 @@ Config.NUI = {
 **3.1 `left`**
 
 Position der Statusbox von links in Pixeln.\
-**Beispiel:** `left = 50` → 50 Pixel vom linken Bildschirmrand.
+➡️ Beispiel: `left = 50` → 50 Pixel vom linken Bildschirmrand.
 
 **3.2 `top`**
 
 Vertikale Position der Statusbox in Prozent.\
-**Beispiel:** `top = 50` → Zentriert auf dem Bildschirm.\
-**Hinweis:** `0%` = oberer Bildschirmrand, `100%` = unterer Rand.
+➡️ Beispiel: `top = 50` → Zentriert auf dem Bildschirm.\
+Hinweis: `0%` = oberer Rand, `100%` = unterer Rand.
 
 **3.3 `width`**
 
 Breite der Statusbox in Pixeln.\
-**Beispiel:** `width = 250` → Statusbox ist 250 Pixel breit.
+➡️ Beispiel: `width = 250` → Statusbox ist 250 Pixel breit.
 
 **3.4 `showMinutesSeconds`**
 
-Legt fest, wie der Timer angezeigt wird.\
-**Werte:**
+Legt fest, wie der Timer angezeigt wird.
 
 * `true` → MM:SS (Minuten:Sekunden)
-* `false` → Nur Sekunden\
-  **Beispiel:**
+* `false` → Nur Sekunden
+
+Beispiel:
 
 ```lua
 showMinutesSeconds = false
@@ -106,19 +108,17 @@ Config.BlockedControls = {
     263, -- Melee Attack 5
     264  -- Melee Attack 6
 }
-
 ```
 
-**Beschreibung:** Liste der Steuerungen, die während der Kampfunfähigkeit deaktiviert werden.
-
+**Beschreibung:** Liste der Steuerungen, die während der Kampfunfähigkeit deaktiviert werden.\
 **Kontroll-IDs (Auswahl):**
 
 * `24` → Attack
 * `25` → Aim
 * `47` → Weapon
-* `140–143`, `257`, `263`, `264` → Verschiedene Nahkampfangriffe
+* `140–143, 257, 263, 264` → Nahkampfangriffe
 
-**Hinweis:** Weitere Controls können hinzugefügt oder entfernt werden, je nach Bedarf.
+Hinweis: Weitere Controls können hinzugefügt oder entfernt werden.
 
 ***
 
@@ -130,10 +130,7 @@ Config.AllowedWeapons = {
 }
 ```
 
-**Beschreibung:** Definiert, welche Waffen Spieler behalten dürfen, wenn sie kampfunfähig werden.
-
-**Funktionsweise:** Alle nicht erlaubten Waffen werden automatisch entwaffnet.
-
+**Beschreibung:** Definiert, welche Waffen Spieler behalten dürfen, wenn sie kampfunfähig werden.\
 **Beispiel:**
 
 ```lua
@@ -143,22 +140,69 @@ Config.AllowedWeapons = {
 }
 ```
 
-**Hinweis:** Nutze `GetHashKey("WEAPON_NAME")` für jede erlaubte Waffe.
+Hinweis: Nutze `GetHashKey("WEAPON_NAME")` für jede erlaubte Waffe.
 
 ***
 
 #### 6. Admin-Befehl: Kampfunfähigkeit beenden
 
-Administratoren mit der `admin`-Group können Spieler aus dem kampfunfähigen Zustand befreien.\
+Administratoren mit der `admin`-Gruppe können Spieler aus dem kampfunfähigen Zustand befreien.
+
 **Command:**
 
-```bash
+```
 /removeincap [playerId]
 ```
 
 **Beschreibung:** Beendet die Kampfunfähigkeit bei einem bestimmten Spieler.\
 **Beispiel:**
 
-```bash
+```
 /removeincap 12
+```
+
+***
+
+### 🔌 Exports (für externe Ressourcen)
+
+Mit den folgenden **Exports** können andere Ressourcen (z. B. Paintball, Events, etc.) direkt eingreifen und das System steuern.
+
+#### 📍 Client-Exports
+
+**Status abfragen**
+
+```lua
+exports['ds-silenthands']:IsIncapacitated() -- true/false
+exports['ds-silenthands']:GetTimer()        -- gibt verbleibende Sekunden zurück
+```
+
+**Force Actions**
+
+```lua
+exports['ds-silenthands']:ForceDisable()      -- Spieler kampfunfähig machen
+exports['ds-silenthands']:ForceRemoveIncap()  -- Kampfunfähigkeit sofort beenden
+```
+
+**UI Handling**
+
+```lua
+exports['ds-silenthands']:SetSkipUI(true)   -- Deaktiviert UI
+exports['ds-silenthands']:ShouldSkipUI()    -- Abfrage ob UI deaktiviert
+```
+
+**Reset**
+
+```lua
+exports['ds-silenthands']:ResetOverrides() -- Setzt alles auf Standard zurück
+```
+
+***
+
+#### 📍 Server-Exports
+
+**Kampfunfähigkeit steuern**
+
+```lua
+exports['ds-silenthands']:RemoveIncapFromPlayer(playerId) -- Entfernt Incap
+exports['ds-silenthands']:ForceIncapOnPlayer(playerId)    -- Erzwingt Incap
 ```
