@@ -9,7 +9,7 @@ Die Konfiguration erfolgt über `config.lua`. Jede Option ist unten detailliert 
 
 ***
 
-### 🔧 Benötigt
+### Benötigt
 
 * [ESX Legacy](https://github.com/esx-framework/esx-legacy)
 * [ox\_inventory](https://github.com/overextended/ox_inventory)
@@ -17,7 +17,7 @@ Die Konfiguration erfolgt über `config.lua`. Jede Option ist unten detailliert 
 
 ***
 
-### ⚙️ Konfiguration (`config.lua`)
+### Konfiguration (`config.lua`)
 
 #### 1. Sprache der Anzeige
 
@@ -163,11 +163,11 @@ Administratoren mit der `admin`-Gruppe können Spieler aus dem kampfunfähigen Z
 
 ***
 
-### 🔌 Exports (für externe Ressourcen)
+### Exports (für externe Ressourcen)
 
 Mit den folgenden **Exports** können andere Ressourcen (z. B. Paintball, Events, etc.) direkt eingreifen und das System steuern.
 
-#### 📍 Client-Exports
+#### Client-Exports
 
 **Status abfragen**
 
@@ -198,7 +198,7 @@ exports['ds-silenthands']:ResetOverrides() -- Setzt alles auf Standard zurück
 
 ***
 
-#### 📍 Server-Exports
+#### Server-Exports
 
 **Kampfunfähigkeit steuern**
 
