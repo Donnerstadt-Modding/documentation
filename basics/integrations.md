@@ -20,111 +20,113 @@ layout:
 
 ## DS-Registration
 
-Dieses Script ermöglicht die **Fahrzeug-Zulassung** über Jeden Beibiegen Job.\
-Damit alles richtig funktioniert, musst du die `config.lua` anpassen.\
-Hier erklären wir **jede einzelne Einstellung** im Detail.
+This script enables vehicle registration through any selected job (e.g. Police, Mechanic, or Road Rescue).\
+To ensure everything works correctly, you must configure the `config.lua` file.\
+This guide explains every setting in detail.
 
 ***
 
-### Benötigt
+### Requirements
 
-* ESXLegacy
+* ESX Legacy
 * ox\_target
 * (Optional) lation\_ui
 
 ***
 
-### Sprache einstellen
+### Set Language
 
 ```lua
 Config.Locale = "de"
 ```
 
-* `"de"` → Deutsch
-* `"en"` → Englisch
+Available options:\
+`"de"` → German\
+`"en"` → English
 
-> 💡 Tipp: Falls du weitere Sprachen hinzufügen möchtest, nutze die Datei `translation.lua`.
+Tip: To add more languages, use the `translation.lua` file.
 
 ***
 
-### Jobs konfigurieren
+### Configure Jobs
 
 ```lua
-Config.JobPolice = "polizei"       -- Polizei-Job
-Config.JobRoadRescue = "rr"        -- RoadRescue-Job
+Config.JobPolice = "polizei"       -- Police job
+Config.JobRoadRescue = "rr"        -- Road Rescue job
 ```
 
-* **JobPolice** → Name des Polizei-Jobs in deiner Datenbank
-* **JobRoadRescue** → Name des RoadRescue-Jobs (z. B. Mechaniker oder Stadtwerke)
+* **JobPolice** → Name of the police job in your database.
+* **JobRoadRescue** → Name of the Road Rescue or mechanic job.
 
-> ⚠️ Stelle sicher, dass diese Namen **exakt** mit deinen Job-Namen in `jobs` übereinstimmen.
+Make sure these names **exactly match** the ones in your job database.
 
 ***
 
-### Datenbank-System wählen
+### Select Database System
 
 ```lua
 Config.DB = "oxmysql"
 ```
 
-Unterstützt werden:
+Supported options:
 
-* `"oxmysql"` (empfohlen ✅)
+* `"oxmysql"` (recommended)
 * `"ghmattimysql"`
 * `"mysql-async"`
 
-> 🔧 Wähle das System, das dein Server nutzt.
+Choose the system your server currently uses.
 
 ***
 
-### Interaktionen
+### Interactions
 
 ```lua
 Config.InteractionDistance = 3.0
 Config.RegistrationPoint = vec3(-303.1077, -1386.8650, 31.4423)
 ```
 
-* **InteractionDistance** → Wie nah Spieler am Fahrzeug stehen müssen (in Metern).
-* **RegistrationPoint** → Koordinaten des Zulassungspunkts (meistens beim Mechaniker oder bei den Stadtwerken).
+* **InteractionDistance** → How close players must be to the vehicle (in meters).
+* **RegistrationPoint** → Coordinates of the registration point (e.g. mechanic or city service location).
 
-> 💡 Du kannst die Koordinaten mit einem Ingame-Tool (z. B. `/coords`) anpassen.
+You can adjust the coordinates with an in-game tool such as `/coords`.
 
 ***
 
-### Benachrichtigungen
+### Notifications
 
 ```lua
-Config.NotificationSystem = "esx" 
+Config.NotificationSystem = "esx"
 ```
 
-Mögliche Systeme:
+Available systems:
 
-* `"esx"` → Standard ESX Notification
-* `"ox_lib"` → Modernes Notification-System (nutzt `ox_lib`)
-* `"custom"` → Eigenes System (muss in `Notify()` definiert werden)
+* `"esx"` → Default ESX notifications
+* `"ox_lib"` → Modern notification system using ox\_lib
+* `"custom"` → Your own notification handler (defined in `Notify()`)
 
 ***
 
-#### Optionen für ox\_lib
+### Options for ox\_lib
 
 ```lua
 Config.LibNotify = {
-    title = "Fahrzeug System",
+    title = "Vehicle System",
     type = "success",   -- success | error | info
     duration = 5000
 }
 ```
 
-* **title** → Überschrift der Nachricht
-* **type** → Art der Nachricht (`success`, `error`, `info`)
-* **duration** → Dauer in Millisekunden (z. B. 5000 = 5 Sekunden)
+* **title** → Notification title
+* **type** → Type of notification (success, error, info)
+* **duration** → Duration in milliseconds (e.g. 5000 = 5 seconds)
 
 ***
 
-### Custom Notify-Funktion
+### Custom Notify Function
 
-Wenn du `custom` auswählst, kannst du im `Notify(msg)`-Block **dein eigenes System** einfügen.\
-Beispiel:
+If you choose `"custom"`, define your own notification event inside the `Notify(msg)` block.
+
+Example:
 
 ```lua
 elseif Config.NotificationSystem == "custom" then
@@ -134,17 +136,22 @@ end
 
 ***
 
-### Checkliste nach Anpassung
+### Post-Setup Checklist
 
-1. `config.lua` speichern
-2. Script neu starten
-3. Testen:
-   * Kann Der Mechaniker Job Fahrzeuge registrieren?
-   * Werden Benachrichtigungen korrekt angezeigt?
-   * Funktioniert der Zulassungspunkt?
+1. Save the `config.lua` file.
+2. Restart the script.
+3. Test the following:
+   * Can the mechanic (or assigned job) register vehicles?
+   * Are notifications displayed correctly?
+   * Does the registration point function as intended?
 
 ***
 
-> 🚨 **Hinweis:**\
-> Ohne korrekt gesetzte Config läuft das Script nicht richtig.\
-> Besonders die Jobnamen, das Datenbanksystem und die Koordinaten müssen stimmen!
+### Important Note
+
+The script will not function correctly without proper configuration.\
+Ensure the following are set correctly:
+
+* Job names
+* Database system
+* Registration coordinates

@@ -16,34 +16,42 @@ layout:
     visible: true
 ---
 
-# Discord Rollen
+# Discord Roles
 
-Um Support zu erhalten und Benachrichtigungen zu bekommen, sobald ein Update für eines deiner Scripts veröffentlicht wird, empfehlen wir dir, deine Rolle auf unserem Discord-Server zu beanspruchen.
+### Claim Your Role and Stay Updated
 
-[➡️ Trete dem DS-Modding Discord Server bei](https://discord.gg/kUsQp5J3)
+To receive support and notifications whenever an update for one of your scripts is released, we recommend claiming your role on our Discord server.
 
-> ℹ️ Du kannst deine Customer Rolle im Channel **#bot-commands** auf unserem Discord anfordern.
-
-***
-
-### Rolle beanspruchen
-
-Es gibt zwei Möglichkeiten, deine Rolle zu beantragen:
-
-* **Sofort**\
-  Nutze unseren Bot: Mit dem Befehl\
-  `/claim <tbx-ID>`\
-  kannst du deine Rolle direkt erhalten. Der Bot weist dir die Rolle sofort zu.\
-  ✅ Keine Wartezeit, sofortiger Zugang zu unseren Support-Channels.
-* **Manuelle Anfrage**\
-  Du hast deine Rolle bereits beantragt und den Server wieder verlassen oder **kennst deine tbx-ID nicht**?\
-  Eröffne Ein Ticket und einer unserer Teammitglieder überprüft dies manuell.\
-  ⏱ Dies kann bis zu 12 Stunden dauern.
+Join the **DS-MODDING Discord Server** to get started.\
+You can request your **Customer Role** in the **#bot-commands** channel on our Discord.
 
 ***
 
-> Kennst du deine tbx-ID nicht?
+#### How to Claim Your Role
 
-Dann kannst du sie jederzeit hier nachschauen:
+There are two ways to claim your role:
+
+**Instant Claim**
+
+Use our bot command:\
+`/claim <tbx-ID>`\
+This will automatically assign your role.
+
+No waiting time, get immediate access to all customer and support channels.
+
+***
+
+**Manual Request**
+
+If you have already claimed your role but left the server, or if you do not know your tbx-ID,\
+please open a ticket, and one of our team members will verify your information manually.
+
+Processing may take up to **12 hours**.
+
+***
+
+#### Don’t Know Your tbx-ID?
+
+You can look it up anytime here:
 
 [🔗 Tebex Checkout](https://checkout.tebex.io/payment-history/login)&#x20;

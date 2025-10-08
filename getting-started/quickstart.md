@@ -16,40 +16,35 @@ layout:
     visible: true
 ---
 
-# Wie bekomme ich Support?
+# How do i get Support?
 
-## 🛠 Support erhalten
+### Get Support
 
-Wenn du Hilfe benötigst, erreichst du unser Support-Team ganz einfach über **Discord**.
-
-***
-
-### 1️⃣ Discord beitreten
-
-Tritt unserem Discord-Server bei, um direkten Kontakt zu bekommen:
-
-> 🔗 [Discord Beitreten](https://discord.gg/P9UXjJwEtD)
+If you need help, you can easily reach our support team via Discord.
 
 ***
 
-### 2️⃣ Support-Ticket erstellen
+#### 1. Join our Discord
 
-Erstelle im Server ein Ticket in [<mark style="color:$success;">**#**</mark><mark style="color:$success;">tickets</mark>](#user-content-fn-1)[^1] und beschreibe dein Problem.\
-Bitte **immer** folgende Informationen angeben:
-
-> 📝 **Tebex-ID:** Deine Bestell-ID von Tebex (Meistens zu finden direkt bei Kauf oder in deiner Angegebenen E-Mail).\
-> 🎁 **Produkt:** Das Produkt was du Gekauft hast.
->
-> 🗒 **Problem / Anliegen:** Beschreibe dein Anliegen oder Problem so genau wie möglich.
-
-> 💡 **Tipp:** Je genauer du die Angaben machst, desto schneller können wir dein Anliegen bearbeiten.
+Join our Discord server to get in direct contact with our team:\
+&#xNAN;**\[Join Discord]**
 
 ***
 
-### 3️⃣ Bearbeitung
+#### 2. Create a Support Ticket
 
-Unser Team meldet sich so schnell wie möglich bei dir und kümmert sich um dein Problem.
+Once you’re on the server, open a ticket in **#tickets** and describe your issue.\
+Please make sure to include the following information:
 
-> ⏱ Wir versuchen, jedes Ticket innerhalb von 24 Stunden zu beantworten.
+* **Tebex ID:** Your order ID from Tebex (usually found right after purchase or in your confirmation email).
+* **Product:** The product you purchased.
+* **Issue / Request:** Describe your issue or question as precisely as possible.
 
-[^1]: 
+**Tip:** The more detailed your information, the faster we can assist you.
+
+***
+
+#### 3. Processing
+
+Our team will respond to your ticket as soon as possible and help you resolve your issue.\
+We aim to reply to all tickets **within 6 hours**.

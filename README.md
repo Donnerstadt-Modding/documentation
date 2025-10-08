@@ -16,18 +16,18 @@ layout:
     visible: true
 ---
 
-# Willkommen
+# Welcome
 
-Herzlich willkommen auf der **DS-Modding Dokumentationsseite**!\
-Hier findest du alle wichtigen Informationen, um unsere **Skripte**, **MLOs** und weiteren **kaufbaren Produkte** erfolgreich einzurichten, anzupassen und zu nutzen.
+**Welcome to the DS-MODDING Documentation Page!**\
+Here you will find all the essential information to set up, customize, and use our scripts, MLOs, and other purchasable products successfully.
 
-Wir möchten dir den Einstieg so einfach wie möglich machen, deshalb findest du hier Installationsanleitungen, Erklärungen zu wichtigen Funktionen sowie hilfreiche Tipps & Tricks.\
-Solltest du dennoch Fragen haben oder Unterstützung benötigen, steht dir unser Discord jederzeit zur Verfügung.
+We aim to make your onboarding as easy as possible — that’s why you’ll find installation guides, explanations of key features, and useful tips & tricks right here.
 
-Viel Spaß beim Entdecken und Verwenden unserer Produkte! 🚀\
-\
+If you still have questions or need assistance, our Discord support team is always available to help you.
 
-
+Enjoy exploring and using our products!\
 
 
-<table data-view="cards"><thead><tr><th></th><th data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Hier ist unser Discord</td><td><a href="https://discord.gg/P9UXjJwEtD">https://discord.gg/P9UXjJwEtD</a></td><td></td><td></td><td></td></tr></tbody></table>
+
+
+<table data-view="cards"><thead><tr><th></th><th data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Discord</td><td><a href="https://discord.gg/P9UXjJwEtD">https://discord.gg/P9UXjJwEtD</a></td><td></td><td></td><td></td></tr></tbody></table>

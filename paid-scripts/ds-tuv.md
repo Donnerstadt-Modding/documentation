@@ -4,54 +4,60 @@ icon: car
 
 # DS-TÜV
 
-## DS-TÜV Script, Config Erklärung
+## DS-TÜV Script – Config Explanation
 
-Diese Seite beschreibt **jede Einstellung in `config.lua`**, ihre Bedeutung und mögliche Werte.
+This page explains every setting in the `config.lua` file, including its purpose and possible values.
 
 ***
 
-**Benötigt**
+### Requirements
 
-* ESXLegacy
+* ESX Legacy
 * ox\_lib
 * oxmysql
 * ox\_target
 
 ***
 
-**SQL-Eintragen (PFLICHT)**
+### SQL Setup (REQUIRED)
 
-```
+Before starting, make sure to create the following table in your database:
+
+```sql
 CREATE TABLE IF NOT EXISTS `tuv_registrations` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(100) NOT NULL,
   `plate` VARCHAR(20) NOT NULL,
-  `duration_days` INT NOT NULL,     
+  `duration_days` INT NOT NULL,
   `expiry` BIGINT NOT NULL,
   `answers` TEXT,
   `created_at` BIGINT NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 ```
+
+This table is used to store all TÜV registrations, including player names, license plates, validity duration, and timestamps.
 
 ***
 
-### 1. Allgemeine Einstellungen
+### 1. General Settings
 
 ```lua
 Config.DefaultLanguage = 'de'
 Config.Debug = true
 ```
 
-| Option            | Typ     | Beschreibung                                                                          | Beispiel |
-| ----------------- | ------- | ------------------------------------------------------------------------------------- | -------- |
-| `DefaultLanguage` | string  | Standard-Sprache des Scripts. Muss mit einer Sprachdatei (`de`, `en`) übereinstimmen. | `'de'`   |
-| `Debug`           | boolean | Aktiviert Debug-Ausgaben auf dem Server. Nützlich, um Fehler zu erkennen.             | `true`   |
+**Description:**\
+Defines the default language and enables debug messages in the server console.
+
+**Values:**
+
+* `Config.DefaultLanguage` → `'de'` for German, `'en'` for English
+* `Config.Debug` → `true` (shows debug logs), `false` (silent mode)
 
 ***
 
-### 2. Datenbank Einstellungen
+### 2. Database Settings
 
 ```lua
 Config.Database = {
@@ -59,11 +65,9 @@ Config.Database = {
 }
 ```
 
-| Option      | Typ    | Beschreibung                                                     | Beispiel              |
-| ----------- | ------ | ---------------------------------------------------------------- | --------------------- |
-| `TableName` | string | Name der MySQL-Tabelle, in der die TÜV-Daten gespeichert werden. | `"tuv_registrations"` |
-
-⚠ **Hinweis:** Diese Option muss korrekt gesetzt sein, sonst gibt es SQL-Fehler.
+**Note:**\
+This setting **must match your SQL table name** exactly.\
+If incorrect, SQL errors will occur during registration or deletion.
 
 ***
 
@@ -76,16 +80,15 @@ Config.Jobs = {
 }
 ```
 
-| Option        | Typ    | Beschreibung                           | Beispiel     |
-| ------------- | ------ | -------------------------------------- | ------------ |
-| `TUVRegister` | string | Job, der **Fahrzeuge eintragen** darf. | `"mechanic"` |
-| `TUVCheck`    | string | Job, der **nur TÜV prüfen** darf.      | `"mechanic"` |
+**Description:**\
+Defines which job roles can register or check TÜV status.
 
-> **Hinweis:** Beide Jobs können gleich sein, wenn ein Job alles darf.
+**Note:**\
+Both jobs can be the same if a single job should handle both actions (for example, a mechanic or road rescue department).
 
 ***
 
-### 4. TÜV Dauer Einstellungen
+### 4. TÜV Duration Settings
 
 ```lua
 Config.Durations = {
@@ -94,14 +97,15 @@ Config.Durations = {
 }
 ```
 
-| Option      | Typ    | Beschreibung                                                     | Beispiel       |
-| ----------- | ------ | ---------------------------------------------------------------- | -------------- |
-| `Allowed`   | table  | Liste von Tagen, die als gültige TÜV-Dauer erlaubt sind.         | `{30, 60, 90}` |
-| `MaxMonths` | number | Maximale Dauer in Monaten, die ein TÜV-Eintrag gültig sein darf. | `5`            |
+**Description:**\
+Defines the allowed TÜV durations in days and sets a maximum duration limit (in months).
+
+* `Allowed` → List of valid durations (in days)
+* `MaxMonths` → Maximum allowed duration in months
 
 ***
 
-### 5. TÜV Standort & Target
+### 5. TÜV Location & Target
 
 ```lua
 Config.Location = {
@@ -117,17 +121,18 @@ Config.Location = {
 }
 ```
 
-| Option                | Typ     | Beschreibung                                      | Beispiel                          |
-| --------------------- | ------- | ------------------------------------------------- | --------------------------------- |
-| `Position`            | vector3 | Koordinaten des festen TÜV-Punktes auf der Karte. | `vector3(212.79, -802.66, 30.86)` |
-| `Target.Radius`       | number  | Radius der Interaktionszone.                      | `4.0`                             |
-| `Target.Height`       | number  | Höhe der Interaktionszone.                        | `1.5`                             |
-| `Target.Debug`        | boolean | Aktiviert Debug-Anzeige der Zone.                 | `true`                            |
-| `Target.Options.Icon` | string  | Icon, das auf dem Zielpunkt angezeigt wird.       | `'fa-solid fa-car'`               |
+**Description:**\
+Defines where the TÜV registration point is located and how it interacts with ox\_target.
+
+* `Position` → Coordinates of the TÜV location
+* `Radius` → Interaction radius around the point
+* `Height` → Vertical detection range
+* `Debug` → Shows interaction markers (for testing)
+* `Icon` → Displayed icon for ox\_target
 
 ***
 
-### 6. TÜV Fragen
+### 6. TÜV Questions
 
 ```lua
 Config.Questions = {
@@ -140,38 +145,40 @@ Config.Questions = {
     {id = "q_wheels", required = false},
     {id = "q_horn", required = false},
     {id = "q_windows", required = false},
-    {id = "q_suspension", required = false},
+    {id = "q_suspension", required = false}
 }
 ```
 
-| Option     | Typ     | Beschreibung                                                     | Beispiel     |
-| ---------- | ------- | ---------------------------------------------------------------- | ------------ |
-| `id`       | string  | Eindeutige ID der Frage. Wird in der NUI und DB verwendet.       | `"q_brakes"` |
-| `required` | boolean | Gibt an, ob die Frage **Pflicht** ist, um den TÜV abzuschließen. | `true`       |
+**Description:**\
+Defines the list of questions displayed during the TÜV inspection.
 
-> Tipp: Pflichtfragen müssen beantwortet werden, sonst wird der Eintrag verweigert.
+**Tip:**\
+All questions marked as `required = true` must be answered.\
+If any required question is left unanswered, the vehicle will not pass inspection.
 
 ***
 
-### 7. Server Fehlermeldungen
+### 7. Server Messages
 
 ```lua
 Config.ServerMessages = {
-    db_error_insert = 'Datenbankfehler beim Eintragen',
-    db_error_delete = 'Datenbankfehler beim Löschen'
+    db_error_insert = 'Database error during registration',
+    db_error_delete = 'Database error during deletion'
 }
 ```
 
-| Option            | Typ    | Beschreibung                                              | Beispiel                           |
-| ----------------- | ------ | --------------------------------------------------------- | ---------------------------------- |
-| `db_error_insert` | string | Meldung, wenn das Eintragen in die Datenbank fehlschlägt. | `"Datenbankfehler beim Eintragen"` |
-| `db_error_delete` | string | Meldung, wenn das Löschen aus der Datenbank fehlschlägt.  | `"Datenbankfehler beim Löschen"`   |
+**Description:**\
+Defines custom messages for server console or client notifications when database errors occur.
 
 ***
 
-### 8. Hinweise & Tipps
+### 8. Tips & Recommendations
 
-* **Debug aktivieren**: `Config.Debug = true` → Serverausgaben helfen bei Problemen.
-* **Jobs prüfen**: Stelle sicher, dass `TUVRegister` und `TUVCheck` existieren und richtig gesetzt sind.
-* **Fragen anpassen**: Du kannst beliebig viele Fragen hinzufügen oder entfernen, achte nur auf eindeutige IDs.
-* **Datenbank prüfen**: `Config.Database.TableName` muss in MySQL existieren.
+* **Enable Debug Mode:**\
+  Set `Config.Debug = true` to view helpful console logs for troubleshooting.
+* **Verify Job Names:**\
+  Ensure that `TUVRegister` and `TUVCheck` exist and match your job names in the `jobs` table.
+* **Customize Questions:**\
+  You can freely add or remove questions. Just ensure each question ID is unique.
+* **Check Database Setup:**\
+  Make sure that the table name in `Config.Database.TableName` exists in your MySQL database.

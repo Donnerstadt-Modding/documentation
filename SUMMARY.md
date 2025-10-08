@@ -1,11 +1,11 @@
 # Table of contents
 
-* [Willkommen](README.md)
+* [Welcome](README.md)
 
 ## Getting Started
 
-* [Wie bekomme ich Support?](getting-started/quickstart.md)
-* [Discord Rollen](getting-started/publish-your-docs.md)
+* [How do i get Support?](getting-started/quickstart.md)
+* [Discord Roles](getting-started/publish-your-docs.md)
 
 ## Paid Scripts
 
