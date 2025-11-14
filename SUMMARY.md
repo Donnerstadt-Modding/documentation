@@ -12,8 +12,8 @@
 * [DS-Registrations](basics/integrations.md)
 * [DS-SilentHands](paid-scripts/ds-silenthands.md)
 * [DS-TÜV](paid-scripts/ds-tuv.md)
+* [DS-Snowchains](paid-scripts/ds-snowchains.md)
 
 ## Free Scripts
 
 * [DS-Repairkit](free-scripts/ds-repairkit.md)
-* [DS-Snowchains](free-scripts/ds-snowchains.md)
