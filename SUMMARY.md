@@ -16,3 +16,4 @@
 ## Free Scripts
 
 * [DS-Repairkit](free-scripts/ds-repairkit.md)
+* [DS-Snowchains](free-scripts/ds-snowchains.md)
