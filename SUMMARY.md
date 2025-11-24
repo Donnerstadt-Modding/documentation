@@ -13,6 +13,7 @@
 * [DS-SilentHands](paid-scripts/ds-silenthands.md)
 * [DS-TÜV](paid-scripts/ds-tuv.md)
 * [DS-Snowchains](paid-scripts/ds-snowchains.md)
+* [DS-DV2](paid-scripts/ds-dv2.md)
 
 ## Free Scripts
 
