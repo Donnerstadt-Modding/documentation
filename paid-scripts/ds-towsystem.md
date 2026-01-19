@@ -1,137 +1,217 @@
 ---
+description: >-
+  This page explains every configuration option for the towing system. Modify
+  these values to customize the script.
 icon: truck-tow
 ---
 
 # DS-Towsystem
 
-## Towing System Configuration
+### Config Debug
 
-This page documents all configurable options for the Towing System. Modify these settings to customize behavior, animations, notifications, and more.
+#### `Config.Debug`
 
-***
-
-### Debug Mode
-
-```lua
-Config.Debug = true
-```
-
-Enable or disable debug logging. When `true`, debug messages are printed to help with troubleshooting.
+Enable or disable debug print statements.
 
 ***
 
 ### Job Lock
 
+#### `Config.AllowedJobs`
+
 ```lua
 Config.AllowedJobs = {
-    rr = true,
+    mechanic = true,
     tow = true
 }
 ```
 
-Restrict towing functionality to specific jobs. Only players with jobs listed here can access the tow menu.
+Only players with jobs listed here can use the towing system.\
+Set job names to `true` to allow access.
 
 ***
 
-### Tow Menu
+### Tow Menu Settings
 
-```lua
-Config.TowMenu = {
-    EnableAnimation = true,
-    AnimationType = "clipboard",  -- Options: "clipboard", "tablet", "none"
-    AnimationTime = 3000,         -- Duration of animation in milliseconds
-    SearchDistance = 12.0         -- Vehicle detection radius
-}
-```
+#### `Config.TowMenu.EnableAnimation`
 
-* **EnableAnimation:** Enable or disable animation when interacting with the tow menu.
-* **AnimationType:** Choose `"clipboard"`, `"tablet"`, or `"none"`.
-* **AnimationTime** : How long the animation plays in milliseconds.
-* **SearchDistance**: Radius around the player to detect vehicles for towing.
+Enable or disable the towing animation.
 
 ***
 
-### Notifications
+#### `Config.TowMenu.AnimationType`
 
-#### Locale Messages
+Choose the animation type. Options:
 
-```lua
-Config.Locale = {
-    VEHICLE_LOADED          = "Vehicle loaded!",
-    VEHICLE_LOADING         = "Loading vehicle...",
-    VEHICLE_ALREADY_LOADED  = "A vehicle is already loaded!",
-    VEHICLE_NEARBY_NONE     = "No vehicle nearby!",
-    VEHICLE_DROPPED         = "Vehicle dropped!"
-}
-```
-
-Customize the notification messages displayed during towing actions.
-
-#### Notification Type
-
-```lua
-Config.NotifyType = 'lib' -- Options: 'lib', 'esx', 'chat'
-```
-
-* **lib** = Uses `lib.notify` for advanced notifications.
-* **esx** = Uses ESX notifications.
-* **chat** = Sends messages to chat.
-* **Custom** = Integrate your own
-
-#### Notify Function
-
-```lua
-local function notify(msg, type)
-    cdebug("NOTIFY ("..(type or "info").."): " .. msg)
-    if Config.NotifyType == 'lib' and lib then
-        lib.notify({title='Towing', description=msg, type=type or 'info'})
-    elseif Config.NotifyType == 'esx' then
-        ESX.ShowNotification(msg)
-    else
-        TriggerEvent('chat:addMessage', {args={msg}})
-    end
-end
-```
-
-This function sends notifications based on the selected system.
+* `"clipboard"`
+* `"tablet"`
 
 ***
 
-### Targets
+#### `Config.TowMenu.AnimationTime`
 
-```lua
-Config.Targets = {
-    LOAD_LABEL = "Load Vehicle",
-    LOAD_ICON  = "fa-solid fa-truck",
-    DROP_LABEL = "Drop Vehicle",
-    DROP_ICON  = "fa-solid fa-truck-ramp-box"
-}
-```
-
-* **LOAD\_LABEL / DROP\_LABEL** = Text shown on interaction targets.
-* **LOAD\_ICON / DROP\_ICON** = Icon displayed for the corresponding action.
+Animation duration in milliseconds.
 
 ***
 
-### Flatbeds
+#### `Config.TowMenu.SearchDistance`
+
+Maximum distance to search for nearby vehicles to load onto the flatbed.
+
+***
+
+### Translations
+
+#### `Config.Locale.VEHICLE_LOADED`
+
+Message shown when a vehicle is successfully loaded.
+
+***
+
+#### `Config.Locale.VEHICLE_LOADING`
+
+Message shown while the vehicle is loading.
+
+***
+
+#### `Config.Locale.VEHICLE_ALREADY_LOADED`
+
+Message shown when a vehicle is already loaded on the flatbed.
+
+***
+
+#### `Config.Locale.VEHICLE_NEARBY_NONE`
+
+Message shown when no vehicle is found nearby.
+
+***
+
+#### `Config.Locale.VEHICLE_DROPPED`
+
+Message shown when a vehicle is unloaded.
+
+***
+
+#### `Config.Locale.MENU_TITLE`
+
+Title shown in the tow menu.
+
+***
+
+#### `Config.Locale.MENU_DISTANCE`
+
+Format string for distance display in the menu.
+
+***
+
+### Notification Settings
+
+#### `Config.NotifyConfig.Enabled`
+
+Enable or disable notifications.
+
+***
+
+#### `Config.NotifyConfig.Type`
+
+Choose notification type. Options:
+
+* `'lib'`
+* `'esx'`
+* `'chat'`
+* `'custom'`
+
+***
+
+#### `Config.NotifyConfig.Title`
+
+Title shown in notifications.
+
+***
+
+### Notification Function
+
+#### `Config.Notify(keyOrMsg, nType)`
+
+This function sends notifications based on `Config.NotifyConfig.Type`.
+
+* If `keyOrMsg` matches a key in `Config.Locale`, it uses the translation.
+* Otherwise, it uses `keyOrMsg` as a custom message.
+* `nType` sets the notification type (`info`, `success`, `error`, etc.).
+
+***
+
+### Target Options
+
+#### `Config.Targets.LOAD_LABEL`
+
+Label shown on the target for loading a vehicle.
+
+***
+
+#### `Config.Targets.LOAD_ICON`
+
+Icon shown on the target for loading a vehicle.
+
+***
+
+#### `Config.Targets.DROP_LABEL`
+
+Label shown on the target for unloading a vehicle.
+
+***
+
+#### `Config.Targets.DROP_ICON`
+
+Icon shown on the target for unloading a vehicle.
+
+***
+
+### Flatbed Configuration
+
+#### `Config.Flatbeds`
+
+Defines vehicles that can be used as flatbeds and their offsets.
+
+Example:
 
 ```lua
 Config.Flatbeds = {
+    [`flatbed`] = {
+        vehicleOffset = vec3(0.0, -3.5, 1.0),
+        dropOffsetY = 5.0
+    },
     [`actschlepp`] = {
-        rampBone = 'misc_z',          -- Ramp bone name (Not implementet)
-        rampUpRot = 0.0,               -- Ramp rotation when up (Not implementet)
-        rampDownRot = -25.0,           -- Ramp rotation when down (Not implementet)
-        vehicleOffset = vec3(0.0, -3.5, 1.0), -- Vehicle placement on flatbed
-        dropOffsetY = 5.0              -- Distance behind flatbed when dropping vehicle
+        vehicleOffset = vec3(0.0, -3.5, 1.0),
+        dropOffsetY = 5.0
     }
 }
 ```
 
-Defines flatbed-specific settings for vehicle towing.
+***
+
+#### `vehicleOffset`
+
+Type: `vector3`\
+Default: `vec3(0.0, -3.5, 1.0)`
+
+Offset for loading the vehicle onto the flatbed.
+
+***
+
+#### `dropOffsetY`
+
+Offset used when dropping a vehicle from the flatbed.
 
 ***
 
 ### Animation Props
+
+#### `Config.Props`
+
+Defines animation props for the tow menu.
+
+Example:
 
 ```lua
 Config.Props = {
@@ -154,7 +234,5 @@ Config.Props = {
 }
 ```
 
-* **model** = The prop model to attach.
-* **animDict / animName** = Animation dictionary and name for the interaction.
-* **bone** = The bone on the player to attach the prop.
-* **offset / rotation** = Position and rotation relative to the bone.
+***
+
