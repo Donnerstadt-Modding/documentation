@@ -27,7 +27,7 @@ If you need help, you can easily reach our support team via Discord.
 #### 1. Join our Discord
 
 Join our Discord server to get in direct contact with our team:\
-&#xNAN;**\[Join Discord]**
+[**Join Discord**](https://discord.gg/U5gegSrQy6)
 
 ***
 
